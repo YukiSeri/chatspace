@@ -1,15 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
 ## Ruby version
   2.3.1
-## System dependencies
-
-## Configuration
 
 ## Database creation
 ### messages
@@ -29,9 +21,9 @@ updated_at|DATETIME|
 ### users
 column|type|options  
 ------|----|-------
-name|varchar|null: false
-email|varchar|null: false
-password|varchar|null: false
+name|text|null: false
+email|text|null: false
+password|text|null: false
 #### association
 * has_many :messages
 * has_many :groups_tags
@@ -55,11 +47,3 @@ group_id|integer|null: false, foreign_key: true
 #### association
 * belongs_to :user
 * belongs_to :group
-
-## Database initialization
-
-## How to run the test suite
-
-## Services (job queues, cache servers, search engines, etc.)
-
-## Deployment instructions
