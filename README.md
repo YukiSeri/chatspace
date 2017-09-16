@@ -26,8 +26,7 @@ email|text|null: false
 password|text|null: false
 #### association
 * has_many :messages
-* has_many :groups_tags
-* has_many :groups, through: :groups_tags
+* has_many :groups, through: :messages
 
 
 ### groups
@@ -35,15 +34,5 @@ column|type|options
 ------|----|-------
 name|text|null: false
 #### association
-* has_many :groups_tags
-* has_many :users, through: :groups_tags
+* has_many :users, through: :messages
 * has_many :messages
-
-### groups_users
-column|type|options  
-------|----|-------
-user_id|integer|null: false, foreign_key: true
-group_id|integer|null: false, foreign_key: true
-#### association
-* belongs_to :user
-* belongs_to :group
