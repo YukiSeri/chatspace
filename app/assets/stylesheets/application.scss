@@ -90,9 +90,35 @@
     }
   }
   &Chat {
+    height: calc(100vh - 100px - 90px);
     background: $mainChat_wrap_color;
+    padding: 46px 40px 0;
+    &__box {
+      margin-bottom: 40px;
+      &Upper {
+      padding-bottom: 10px;
+      vertical-align: middle;
+      }
+      &Name {
+        font-size: 16px;
+        font-weight: bold;
+        color: #434A54;
+        display: inline-block;
+        padding-right: 10px;
+      }
+      &Time {
+        font-size: 12px;
+        color: #999999;
+        display: inline-block;
+      }
+      &Message {
+        font-size: 14px;
+        color: #434A54;
+      }
+    }
   }
   &Form {
+    height: 90px;
     background: $mainForm_wrap_color;
   }
 }
