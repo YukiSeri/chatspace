@@ -33,7 +33,7 @@
     }
   }
   &Group {
-    height: calc(100vh - 100px);
+    height: calc(100% - 100px);
     background: $side__group_color;
     padding: 0 20px;
     &__box {
@@ -120,5 +120,40 @@
   &Form {
     height: 90px;
     background: $mainForm_wrap_color;
+    &__wrap {
+      padding: 20px 50px 20px 40px;
+    }
+    &__input {
+      height: 50px;
+      width: calc(100% - 145px);
+      padding: 0 10px;
+      box-sizing: border-box;
+      border: none;
+      float: left;
+    }
+    &__image {
+      display: inline-block;
+      height: 50px;
+      line-height: 50px;
+      padding-right: 10px;
+      background: #FFF;
+      float: left;
+      &Upload {
+        font-size: 20px;
+      }
+      .hidden {
+        display: none;
+      }
+    }
+    &__btn {
+      height: 50px;
+      padding: 0 30px;
+      background: $emphasis_color;
+      font-size: 16px;
+      color: #FFF;
+      border: none;
+      border-radius: none;
+      margin-left: 15px;
+    }
   }
 }

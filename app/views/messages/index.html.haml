@@ -44,3 +44,11 @@
         .mainChat__boxMessage
           Hello
     .mainForm
+      = form_for(@message, :html => {class: "mainForm__wrap"}) do |f|
+        = f.text_field :text, placeholder: 'type a message', class: "mainForm__input"
+        .mainForm__image
+          %label.mainForm__imageUpload
+            %i.fa.fa-picture-o
+            = f.file_field :image, class: "hidden"
+        = button_tag type: "submit", class: "mainForm__btn" do
+          Send
