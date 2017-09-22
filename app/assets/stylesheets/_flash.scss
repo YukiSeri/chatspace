@@ -1,3 +1,5 @@
+@import "./variables";
+
 .flash {
   width: 100vw;
   color: #FFFFFF;
@@ -5,9 +7,9 @@
   position: absolute;
   top: 0;
   &__alert{
-    background-color: #F35500;
+    background-color: $flash_alart;
   }
   &__notice {
-    background-color: #38AEF0;
+    background-color: $flash_notice;
   }
 }
