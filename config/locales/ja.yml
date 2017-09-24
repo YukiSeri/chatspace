@@ -1,4 +1,8 @@
 ja:
+  activerecord:
+    attributes:
+      group:
+        name: グループ名
   attributes:
     email: メールアドレス
     password: パスワード
