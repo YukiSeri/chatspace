@@ -1,3 +1,5 @@
+@import "./variables";
+
 .chat-group-form {
   width: 980px;
   margin: 60px auto;
@@ -99,7 +101,7 @@
       cursor: pointer;
 
       &.chat-group-user__btn--add {
-        color: #38aef0;
+        color: $emphasis_color;
       }
 
       &.chat-group-user__btn--remove {
@@ -112,7 +114,7 @@
     display: inline-block;
     padding: 12px 20px;
     color: #fff;
-    background-color: #38aef0;
+    background-color: $emphasis_color;
     border: 0;
   }
 }
