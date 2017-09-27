@@ -13,7 +13,6 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    @group = Group.find(1)
   end
 
   private
