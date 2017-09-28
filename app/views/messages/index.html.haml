@@ -48,7 +48,7 @@
         .mainChat__boxMessage
           Hello
     .mainForm
-      = form_for(@message, :html => {class: "mainForm__wrap"}) do |f|
+      = form_for([@group, @message], :html => {class: "mainForm__wrap"}) do |f|
         = f.text_field :text, placeholder: 'type a message', class: "mainForm__input"
         .mainForm__image
           %label.mainForm__imageUpload

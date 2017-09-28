@@ -1,4 +1,8 @@
 class GroupsController < ApplicationController
+  def index
+    @groups = current_user.groups.order("updated_at DESC")
+  end
+
   def new
     @group = Group.new
   end
