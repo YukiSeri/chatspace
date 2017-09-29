@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   def index
-    @groups = current_user.groups.order("updated_at DESC")
+    @groups = current_user.groups.desc
   end
 
   def new
