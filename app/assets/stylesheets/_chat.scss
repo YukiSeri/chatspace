@@ -98,6 +98,10 @@
       float: left;
       &Upload {
         font-size: 20px;
+        display: inline-block;
+        &:hover {
+          cursor: pointer;
+        }
       }
       .hidden {
         display: none;
