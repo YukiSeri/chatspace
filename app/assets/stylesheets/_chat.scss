@@ -47,6 +47,7 @@
     background: $mainChat_wrap_color;
     padding: 0 40px;
     padding-top: 46px;
+    overflow-y: scroll;
     &__box {
       margin-bottom: 40px;
       &Upper {
