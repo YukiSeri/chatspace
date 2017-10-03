@@ -31,10 +31,12 @@
           Hello
     .mainForm
       = form_for([@group, @message], :html => {class: "mainForm__wrap"}) do |f|
-        = f.text_field :text, placeholder: 'type a message', class: "mainForm__input"
+        = f.text_field :text, placeholder: 'type a message', value: "", id: "mainForm__input", class: "mainForm__input"
         .mainForm__image
           %label.mainForm__imageUpload
             %i.fa.fa-picture-o
-            = f.file_field :image, class: "hidden"
+            = f.file_field :image, id: "imageUpload", class: "hidden"
+        .cancelBtn
+          %i.fa.fa-times
         = button_tag type: "submit", class: "mainForm__btn" do
           Send
