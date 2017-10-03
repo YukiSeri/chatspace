@@ -8,10 +8,11 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.new(message_params)
+    binding.pry
     if @message.save
       redirect_to group_messages_path(params[:group_id])
     else
-      flash[:alert]="メッセージを入力してください。"
+      flash.now[:alert]="メッセージの送信に失敗しました。"
       render :index
     end
   end
