@@ -3,32 +3,18 @@
   .main
     .mainHeader
       .mainHeader__title
-        Temp
+        = @group.name
       .mainHeader__member
         %ul
           %label Member：
-          %li
-            seri
+          - @group.users.each do |member|
+            %li
+              = member.name
       .mainHeader__edit
         = link_to edit_group_path(@group) do
           Edit
     .mainChat
-      .mainChat__box
-        .mainChat__boxUpper
-          .mainChat__boxName
-            seri
-          .mainChat__boxTime
-            2017/09/16 00:00
-        .mainChat__boxMessage
-          Hello
-      .mainChat__box
-        .mainChat__boxUpper
-          .mainChat__boxName
-            seri
-          .mainChat__boxTime
-            2017/09/16 00:00
-        .mainChat__boxMessage
-          Hello
+      = render partial: "chat", collection: @messages
     .mainForm
       = form_for([@group, @message], :html => {class: "mainForm__wrap"}) do |f|
         = f.text_field :text, placeholder: 'type a message', value: "", id: "mainForm__input", class: "mainForm__input"

@@ -1,0 +1,11 @@
+.mainChat__box
+  .mainChat__boxUpper
+    .mainChat__boxName
+      = chat.user.name
+    .mainChat__boxTime
+      = chat.created_at
+  .mainChat__boxMessage
+    - if chat.image.blank?
+      = chat.text
+    - else
+      = image_tag chat.image_url(:thumb)
