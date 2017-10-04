@@ -8,14 +8,4 @@ class Group < ApplicationRecord
 
   scope :desc, -> { order("groups.updated_at DESC") }
 
-  def last_message
-    if messages.last.try(:text)
-      messages.last.text
-    elsif messages.last.try(:image)
-      '画像が投稿されています。'
-    else
-      'まだメッセージはありません'
-    end
-  end
-
 end
