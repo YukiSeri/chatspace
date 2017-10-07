@@ -3,7 +3,7 @@
     .mainChat__boxName
       = chat.user.name
     .mainChat__boxTime
-      = chat.created_at
+      = chat.created_at.strftime('%Y/%m/%d %H:%M:%S')
   .mainChat__boxMessage
     - if chat.image.blank?
       = chat.text

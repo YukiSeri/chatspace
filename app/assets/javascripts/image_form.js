@@ -20,6 +20,7 @@ $(document).on('turbolinks:load', function() {
 
   $('.cancelBtn').on('click', function(){
     $('#mainForm__input').val("");
+    $('#imageUpload').val("");
     $('#mainForm__input').prop('disabled', false);
     $('.cancelBtn').toggleClass('active');
   });

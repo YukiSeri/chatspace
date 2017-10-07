@@ -46,7 +46,11 @@ $(document).on('turbolinks:load', function() {
       var html = buildHTML(data);
       $('.mainChat').append(html);
       $('#mainForm__input').val('');
+      $('#mainForm__input').prop('disabled', false);
       $('#imageUpload').val('');
+      $('#imageUpload').prop('disabled', false);
+      $('.mainForm__imageUpload').removeClass('disabled');
+      $('.cancelBtn').removeClass('active');
     })
     .fail(function(){
       alert("メッセージの送信に失敗しました。");
