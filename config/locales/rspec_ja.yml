@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    errors:
+      models:
+        message:
+          attributes:
+            group:
+              required: が必要です。
+            user:
+              required: が必要です。
