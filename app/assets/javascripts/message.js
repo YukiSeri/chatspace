@@ -51,6 +51,7 @@ $(document).on('turbolinks:load', function() {
       $('#imageUpload').prop('disabled', false);
       $('.mainForm__imageUpload').removeClass('disabled');
       $('.cancelBtn').removeClass('active');
+      $(".mainChat").animate({scrollTop: $(".mainChat")[0].scrollHeight}, 1500);
     })
     .fail(function(){
       alert("メッセージの送信に失敗しました。");
