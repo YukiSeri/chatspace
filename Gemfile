@@ -50,6 +50,10 @@ group :development, :test do
   gem 'byebug', platform: :mri
 
   gem 'pry-rails'
+
+  gem 'rspec-rails'
+  gem 'factory_girl_rails', '~> 4.4.1'
+  
 end
 
 group :development do
@@ -62,6 +66,10 @@ group :development do
 
   gem 'haml-rails'
   gem 'erb2haml'
+end
+
+group :test do
+  gem 'faker'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
