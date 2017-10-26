@@ -51,6 +51,8 @@ group :development, :test do
 
   gem 'pry-rails'
 
+  gem 'haml-rails'
+
 end
 
 group :development do
@@ -61,7 +63,6 @@ group :development do
   gem 'spring', '2.0.0'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
-  gem 'haml-rails'
   gem 'erb2haml'
 end
 
