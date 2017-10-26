@@ -16,6 +16,12 @@ describe MessagesController do
         expect(response).to render_template :index
       end
 
+      it "assigns the requested contact to @group" do
+        t_group = group
+        get :index, params: { group_id: t_group }
+        expect(assigns(:group)).to eq t_group
+      end
+
       # it "assigns the requested contact to @groups" do
       #   @group = user.groups.first
       #   get :index, params: { group_id: @group.id }
