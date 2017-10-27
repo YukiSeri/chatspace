@@ -29,6 +29,19 @@ describe MessagesController do
         expect(assigns(:groups)).to eq groups
       end
 
+      it "assigns a new message as @message" do
+        t_group = group
+        get :index, params: { group_id: t_group }
+        expect(assigns(:message)).to be_a_new(Message)
+      end
+
+      it "assigns the requested message to @messages" do
+        t_group = group
+        get :index, params: { group_id: t_group }
+        messages = create_list(:message, 3, user: user, group: t_group)
+        expect(assigns(:messages)).to eq messages
+      end
+
     end
 
     context 'When user dont log-in' do
