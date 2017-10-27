@@ -50,6 +50,9 @@ group :development, :test do
   gem 'byebug', platform: :mri
 
   gem 'pry-rails'
+
+  gem 'haml-rails'
+
 end
 
 group :development do
@@ -60,8 +63,16 @@ group :development do
   gem 'spring', '2.0.0'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
-  gem 'haml-rails'
   gem 'erb2haml'
+end
+
+group :test do
+
+  gem 'rspec-rails'
+  gem 'factory_girl_rails', '~> 4.4.1'
+  gem 'faker'
+  gem 'rails-controller-testing'
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

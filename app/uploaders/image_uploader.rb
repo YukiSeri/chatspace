@@ -14,7 +14,19 @@ class ImageUploader < CarrierWave::Uploader::Base
   # This is a sensible default for uploaders that are meant to be mounted:
   # 保存先の指定
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    # Rspecのテスト実施時の保存場所を指定
+    if Rails.env.test?
+      "#{Rails.root}/spec/support/uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    else
+      "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    end
+  end
+
+  def cache_dir
+    # Rspecのテスト実施時の保存場所を指定
+    if Rails.env.test?
+      "#{Rails.root}/spec/support/uploads/tmp"
+    end
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:

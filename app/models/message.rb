@@ -1,6 +1,6 @@
 class Message < ApplicationRecord
   mount_uploader :image, ImageUploader
-  validates :text_or_image, presence:true
+  validates :text_or_image, :group_id, :user_id, presence:true
 
   belongs_to :group
   belongs_to :user
