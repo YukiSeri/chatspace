@@ -92,6 +92,13 @@ describe MessagesController do
       end
     end
 
+    describe 'POST #create' do
+      it 'redirects to new_user_session_path' do
+        post :create, params: { message: attributes_for(:message), group_id: group }
+        expect(response).to redirect_to new_user_session_path
+      end
+    end
+
   end
 
 end
