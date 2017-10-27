@@ -28,12 +28,9 @@ $(document).on('turbolinks:load', function() {
 
   $(".mainForm__wrap").on('submit', function(e){
     e.preventDefault();
-    console.log(this);
     var formData = new FormData(this);
-    console.log(formData);
     var url = $(this).attr('action');
-    console.log(url);
-
+    
     $.ajax({
       url: url,
       type: "POST",
