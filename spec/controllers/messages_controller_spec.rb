@@ -40,27 +40,31 @@ describe MessagesController do
 
     describe 'POST #create' do
       context 'with valid attributes' do
-        subject { post :create, params: { message: attributes_for(:message), group_id: group } }
+        subject {
+          Proc.new{ post :create, params: { message: attributes_for(:message), group_id: group } }
+        }
         it "save the new message in DB" do
-          expect{subject}.to change(Message, :count).by(1)
+          expect{subject.call}.to change(Message, :count).by(1)
         end
         it "redirects to group_messages_path" do
-          subject
+          subject.call
           expect(response).to redirect_to group_messages_path
         end
       end
 
       context 'with invalid attributes' do
-        subject { post :create, params: { message: attributes_for(:message, text: nil, image: nil), group_id: group } }
+        subject {
+          Proc.new { post :create, params: { message: attributes_for(:message, text: nil, image: nil), group_id: group } }
+        }
         it "cannot save the new message in DB" do
-          expect{subject}.to change(Message, :count).by(0)
+          expect{subject.call}.to change(Message, :count).by(0)
         end
         it "renders the messages#index" do
-          subject
+          subject.call
           expect(response).to render_template :index
         end
         it "displays a flash error message" do
-          subject
+          subject.call
           expect(flash.now[:alert]).to eq("メッセージの送信に失敗しました。")
         end
       end
