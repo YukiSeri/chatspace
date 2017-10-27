@@ -27,8 +27,7 @@ describe MessagesController do
         expect(assigns(:groups)).to eq groups
       end
       it "assigns a new message as @message" do
-        t_group = group
-        get :index, params: { group_id: t_group }
+        get :index, params: { group_id: group }
         expect(assigns(:message)).to be_a_new(Message)
       end
       it "assigns the requested message to @messages" do
