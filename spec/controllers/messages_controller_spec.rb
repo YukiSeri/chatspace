@@ -22,12 +22,12 @@ describe MessagesController do
         expect(assigns(:group)).to eq t_group
       end
 
-      # it "assigns the requested contact to @groups" do
-      #   @group = user.groups.first
-      #   get :index, params: { group_id: @group.id }
-      #   groups = user.groups
-      #   except(assigns(:groups)).to eq groups
-      # end
+      it "assigns the requested contact to @groups" do
+        t_group = user.groups.first
+        get :index, params: { group_id: t_group }
+        groups = user.groups
+        expect(assigns(:groups)).to eq groups
+      end
 
     end
 
