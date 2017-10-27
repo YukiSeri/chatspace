@@ -67,6 +67,11 @@ describe MessagesController do
         it "cannot save the new message in DB" do
           expect{subject}.to change(Message, :count).by(0)
         end
+
+        it "renders the messages#index" do
+          subject
+          expect(response).to render_template :index
+        end
       end
 
     end
