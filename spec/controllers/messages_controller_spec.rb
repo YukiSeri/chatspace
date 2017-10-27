@@ -72,6 +72,12 @@ describe MessagesController do
           subject
           expect(response).to render_template :index
         end
+
+        it "displays a flash error message" do
+          subject
+          expect(flash.now[:alert]).to eq("メッセージの送信に失敗しました。")
+        end
+
       end
 
     end
