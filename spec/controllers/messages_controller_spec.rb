@@ -5,11 +5,12 @@ describe MessagesController do
   let(:group) { create(:group) }
   let(:message) { create(:message) }
 
-  describe 'GET #index' do
-    context 'When user can log-in' do
-      before do
-        login_user(user)
-      end
+  context 'When user can log-in' do
+    before do
+      login_user(user)
+    end
+
+    describe 'GET #index' do
 
       it "renders the :index template" do
         get :index, params: { group_id: group }
@@ -44,9 +45,21 @@ describe MessagesController do
 
     end
 
-    context 'When user dont log-in' do
+    describe 'POST #create' do
+
+      it "save the new message in DB" do
+        expect{
+          post :create, params: { message: attributes_for(:message), group_id: group }
+          binding.pry
+        }.to change(Message, :count).by(1)
+      end
 
     end
+
+  end
+
+  context 'When user dont log-in' do
+
   end
 
 end
