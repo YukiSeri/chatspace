@@ -47,15 +47,26 @@ describe MessagesController do
 
     describe 'POST #create' do
 
-      subject { post :create, params: { message: attributes_for(:message), group_id: group } }
+      context 'with valid attributes' do
+        subject { post :create, params: { message: attributes_for(:message), group_id: group } }
 
-      it "save the new message in DB" do
-        expect{subject}.to change(Message, :count).by(1)
+        it "save the new message in DB" do
+          expect{subject}.to change(Message, :count).by(1)
+        end
+
+        it "redirects to group_messages_path" do
+          subject
+          expect(response).to redirect_to group_messages_path
+        end
+
       end
 
-      it "redirects to group_messages_path" do
-        subject
-        expect(response).to redirect_to group_messages_path
+      context 'with invalid attributes' do
+        subject { post :create, params: { message: attributes_for(:message, text: nil, image: nil), group_id: group } }
+
+        it "cannot save the new message in DB" do
+          expect{subject}.to change(Message, :count).by(0)
+        end
       end
 
     end
