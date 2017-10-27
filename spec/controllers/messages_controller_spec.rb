@@ -47,11 +47,15 @@ describe MessagesController do
 
     describe 'POST #create' do
 
+      subject { post :create, params: { message: attributes_for(:message), group_id: group } }
+
       it "save the new message in DB" do
-        expect{
-          post :create, params: { message: attributes_for(:message), group_id: group }
-          binding.pry
-        }.to change(Message, :count).by(1)
+        expect{subject}.to change(Message, :count).by(1)
+      end
+
+      it "redirects to group_messages_path" do
+        subject
+        expect(response).to redirect_to group_messages_path
       end
 
     end
