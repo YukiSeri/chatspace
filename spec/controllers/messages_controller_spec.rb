@@ -85,6 +85,12 @@ describe MessagesController do
   end
 
   context 'When user dont log-in' do
+    describe 'GET #index' do
+      it 'redirects to new_user_session_path' do
+        get :index, params: { group_id: group }
+        expect(response).to redirect_to new_user_session_path
+      end
+    end
 
   end
 
