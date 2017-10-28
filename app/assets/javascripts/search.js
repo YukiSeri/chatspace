@@ -57,6 +57,8 @@ $(document).on('turbolinks:load', function() {
     var id = $(this).data('userId');
     var name = $(this).data('userName');
     addUser(id, name);
+    var user = $(this).parent();
+    user.remove();
   });
 
 });
