@@ -18,19 +18,16 @@
       %label.chat-group-form__label{for: "chat_group_add_chat-member"}チャットメンバーを追加
     .chat-group-form__field--right
       .chat-group-form__search.clearfix
-        = f.text_field :keyword, placeholder: '追加したいユーザー名を入力してください', class: "chat-group-form__input", id: "user-search-field"
+        %input{type: "text", placeholder: "追加したいユーザ名を入力してください", class: "chat-group-form__input", id: "user-search-field"}
       .user-search-result
         #chat-group-users
-          #chat-group-user-22.chat-group-user.clearfix
-            = f.hidden_field :user_ids, value: current_user.id
-            %p.chat-group-user__name
-              = current_user.name
+
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+      %label.chat-group-form__label{for: "chat_group_chat-member"} チャットメンバー
+    .chat-group-form__field--right
 
   -# collection_checkboxesでの実装はコメントアウトすることとする
-  -# .chat-group-form__field.clearfix
-  -#   .chat-group-form__field--left
-  -#     %label.chat-group-form__label{for: "chat_group_チャットメンバー"} チャットメンバー
-  -#   .chat-group-form__field--right
   -#     .check_box
   -#       = f.collection_check_boxes(:user_ids, User.all, :id, :name) do |b|
   -#         = b.label { b.check_box + b.text }
