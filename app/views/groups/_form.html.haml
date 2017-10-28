@@ -20,12 +20,12 @@
       .chat-group-form__search.clearfix
         %input{type: "text", placeholder: "追加したいユーザ名を入力してください", class: "chat-group-form__input", id: "user-search-field"}
       .user-search-result
-        #chat-group-users
 
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
       %label.chat-group-form__label{for: "chat_group_chat-member"} チャットメンバー
     .chat-group-form__field--right
+      #chat-group-users
 
   -# collection_checkboxesでの実装はコメントアウトすることとする
   -#     .check_box
