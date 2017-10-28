@@ -61,4 +61,9 @@ $(document).on('turbolinks:load', function() {
     user.remove();
   });
 
+  $(".chat-group-form").on("click", ".user-search-remove", function(){
+    var user = $(this).parent();
+    user.remove();
+  });
+
 });
