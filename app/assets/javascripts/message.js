@@ -30,7 +30,7 @@ $(document).on('turbolinks:load', function() {
     e.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr('action');
-    
+
     $.ajax({
       url: url,
       type: "POST",
@@ -54,4 +54,24 @@ $(document).on('turbolinks:load', function() {
       alert("メッセージの送信に失敗しました。");
     })
   });
+
+  if($(".mainChat").length){
+    setInterval( function(){
+      var url = $(location).attr('pathname');
+      $.ajax({
+        url: url,
+        type: 'GET',
+        dataType: 'json'
+      })
+      .done(function(messages){
+        $(".mainChat").empty();
+        messages.forEach(function(message){
+          var html = buildHTML(message);
+          $(".mainChat").append(html);
+          $(".mainChat").animate({scrollTop: $(".mainChat")[0].scrollHeight}, 500);
+        });
+      });
+    }, 5000 );
+  }
+
 });
