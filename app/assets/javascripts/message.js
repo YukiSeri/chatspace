@@ -20,6 +20,7 @@ $(document).on('turbolinks:load', function() {
                     <div class="mainChat__boxTime">${chat.created_at}</div>
                   </div>
                   <div class="mainChat__boxMessage">
+                    <span class="mainChat__id" style="display: none;">${chat.id}</span>
                     ${content}
                   </div>
                 </div>`
@@ -64,12 +65,16 @@ $(document).on('turbolinks:load', function() {
         dataType: 'json'
       })
       .done(function(messages){
-        $(".mainChat").empty();
-        messages.forEach(function(message){
-          var html = buildHTML(message);
-          $(".mainChat").append(html);
-          $(".mainChat").animate({scrollTop: $(".mainChat")[0].scrollHeight}, 500);
-        });
+        var last_id = messages[messages.length-1].id;
+        var display_last_id = $(".mainChat__id").last().text();
+        if (last_id > display_last_id) {
+          $(".mainChat").empty();
+          messages.forEach(function(message){
+            var html = buildHTML(message);
+            $(".mainChat").append(html);
+            $(".mainChat").animate({scrollTop: $(".mainChat")[0].scrollHeight}, 500);
+          });
+        }
       });
     }, 5000 );
   }
