@@ -2,6 +2,7 @@ $(document).on('turbolinks:load', function() {
 
   var search_list = $(".user-search-result");
   var member_list = $("#chat-group-users");
+  var chat_members = new Array();
 
   function appendUser(user) {
    var html = `<div class="chat-group-user clearfix">
@@ -19,17 +20,17 @@ $(document).on('turbolinks:load', function() {
   }
 
   function addUser(id, name) {
-    var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
+    var html = `<div class='chat-group-user clearfix js-chat-member'>
                   <input name='group[user_ids][]' type='hidden' value='${id}'>
                   <p class='chat-group-user__name'>${name}</p>
                   <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
                 </div>`
+    chat_members.push(id);
     member_list.append(html);
   }
 
   $(".chat-group-form__input").on("keyup", function(){
     var input = $(this).val();
-    console.log(input);
 
     $.ajax({
       type: 'GET',
@@ -38,7 +39,7 @@ $(document).on('turbolinks:load', function() {
       dataType: 'json'
     })
     .done(function(users) {
-      $("#chat-group-users").empty();
+      search_list.empty();
       if (users.length !== 0){
         users.forEach(function(user){
           appendUser(user);
@@ -64,6 +65,12 @@ $(document).on('turbolinks:load', function() {
   $(".chat-group-form").on("click", ".user-search-remove", function(){
     var user = $(this).parent();
     user.remove();
+    var id = $(this).parent().find('input').val();
+    for(var i = chat_members.length - 1; i >= 0; i--){
+      if(chat_members[i]==id){
+        chat_members.splice(i,1);
+      }
+    }
   });
 
 });
