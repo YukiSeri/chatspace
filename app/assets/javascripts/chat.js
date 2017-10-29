@@ -1,3 +1,5 @@
 $(document).on('turbolinks:load', function() {
-  $(".mainChat").scrollTop($(".mainChat")[0].scrollHeight);
+  if($(".mainChat").length){
+    $(".mainChat").scrollTop($(".mainChat")[0].scrollHeight);
+  }
 });
