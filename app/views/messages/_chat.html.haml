@@ -4,9 +4,7 @@
       = chat.user.name
     .mainChat__boxTime
       = chat.created_at.strftime('%Y/%m/%d %H:%M:%S')
-  .mainChat__boxMessage
-    %span.mainChat__id{style: "display: none;"}
-      = chat.id
+  .mainChat__boxMessage{data: {chatid: "#{chat.id}"}}
     - if chat.image.blank?
       = chat.text
     - else
