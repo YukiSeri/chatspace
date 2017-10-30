@@ -55,7 +55,7 @@ $(document).on('turbolinks:load', function() {
     })
   });
 
-  if($(".mainChat").length){
+  if(document.URL.match("/messages")){
     setInterval( function(){
       var url = $(location).attr('pathname');
       $.ajax({
